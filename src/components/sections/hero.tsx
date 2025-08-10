@@ -23,10 +23,10 @@ export function Hero() {
             >
               QuantFident Mentorship
             </motion.div>
-            <h1 className="text-5xl md:text-6xl font-serif font-bold tracking-tight bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold tracking-tight bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent leading-tight">
               Bước vào thế giới Quant với lộ trình đã được kiểm chứng
             </h1>
-            <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+            <p className="mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
               Chương trình 1-1 giúp bạn vào Quant Researcher, Trader, hoặc Quant Developer top-tier. Học từ Green Book Ch2–7 đến thực chiến build 2–3 alpha models trên WorldQuant BRAIN. Unlimited mock interviews trong chương trình và 1 năm sau.
             </p>
             <div className="mt-8 flex items-center gap-4">

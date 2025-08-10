@@ -13,12 +13,12 @@ export function Section({ id, title, description, children }: SectionProps) {
       {(title || description) && (
         <div className="mb-12 text-center">
           {title && (
-            <h2 className="text-3xl md:text-5xl font-serif font-bold tracking-tight bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif font-bold tracking-tight bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
               {title}
             </h2>
           )}
           {description && (
-            <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               {description}
             </p>
           )}
