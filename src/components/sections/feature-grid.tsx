@@ -4,17 +4,17 @@ import { Badge } from "@/components/ui/badge";
 import { FadeIn } from "@/components/anim/fade-in";
 
 const features = [
-  "Theory-to-Alpha Pipeline",
-  "WorldQuant BRAIN Projects",
-  "Unlimited Mock Interviews",
-  "Resume & LinkedIn Polish",
-  "Competition Playbook",
-  "Mentor Support",
+  "Lộ trình từ Lý thuyết đến Alpha",
+  "Dự án WorldQuant BRAIN",
+  "Phỏng vấn thử không giới hạn",
+  "Hoàn thiện CV & LinkedIn",
+  "Sổ tay Cuộc thi",
+  "Hỗ trợ Mentor",
 ];
 
 export function FeatureGrid() {
   return (
-    <Section title="Value props">
+    <Section title="Giá trị cốt lõi">
       <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
         {features.map((f, i) => (
           <FadeIn key={f} delay={i * 0.05}>
@@ -23,7 +23,7 @@ export function FeatureGrid() {
                 <CardTitle className="text-base">{f}</CardTitle>
               </CardHeader>
               <CardContent>
-                <Badge variant="secondary">Included</Badge>
+                <Badge variant="secondary">Bao gồm</Badge>
               </CardContent>
             </Card>
           </FadeIn>

@@ -24,7 +24,7 @@ export function Hero() {
               QuantFident Mentorship
             </motion.div>
             <h1 className="text-5xl md:text-6xl font-serif font-bold tracking-tight bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent leading-tight">
-              Break into Quant with a battle-tested roadmap
+              Bước vào thế giới Quant với lộ trình đã được kiểm chứng
             </h1>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
               Chương trình 1-1 giúp bạn vào Quant Researcher, Trader, hoặc Quant Developer top-tier. Học từ Green Book Ch2–7 đến thực chiến build 2–3 alpha models trên WorldQuant BRAIN. Unlimited mock interviews trong chương trình và 1 năm sau.
@@ -39,7 +39,7 @@ export function Hero() {
                     element?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
-                  Get Started
+                  Bắt đầu ngay
                 </Button>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -52,7 +52,7 @@ export function Hero() {
                     element?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
-                  Learn More
+                  Tìm hiểu thêm
                 </Button>
               </motion.div>
             </div>

@@ -6,27 +6,27 @@ import { TrendingUp, Brain, Code } from "lucide-react";
 const careers = [
   {
     icon: TrendingUp,
-    title: "Quant Researcher",
-    description: "Design alpha signals, backtest strategies, analyze market anomalies. Focus on statistical modeling, factor research, and predictive analytics.",
-    skills: ["Statistics & Probability", "Signal Processing", "Factor Models", "Research Methodology"]
+    title: "Nhà nghiên cứu Quant",
+    description: "Thiết kế tín hiệu alpha, kiểm tra lại chiến lược, phân tích bất thường thị trường. Tập trung vào mô hình thống kê, nghiên cứu yếu tố và phân tích dự đoán.",
+    skills: ["Thống kê & Xác suất", "Xử lý tín hiệu", "Mô hình yếu tố", "Phương pháp nghiên cứu"]
   },
   {
     icon: Brain,
-    title: "Quant Trader",
-    description: "Execute algorithmic strategies, manage risk in real-time, optimize portfolio allocation. Combine quantitative analysis with market intuition.",
-    skills: ["Market Microstructure", "Risk Management", "Portfolio Optimization", "Execution Algorithms"]
+    title: "Trader Quant",
+    description: "Thực hiện chiến lược thuật toán, quản lý rủi ro thời gian thực, tối ưu hóa phân bổ danh mục. Kết hợp phân tích định lượng với trực giác thị trường.",
+    skills: ["Vi cấu trúc thị trường", "Quản lý rủi ro", "Tối ưu danh mục", "Thuật toán thực thi"]
   },
   {
     icon: Code,
-    title: "Quant Developer",
-    description: "Build trading systems, implement backtesting frameworks, optimize low-latency infrastructure. Bridge quantitative research and technology.",
-    skills: ["System Design", "Performance Optimization", "Data Engineering", "Trading Infrastructure"]
+    title: "Lập trình viên Quant",
+    description: "Xây dựng hệ thống giao dịch, triển khai khung kiểm tra lại, tối ưu hóa hạ tầng độ trễ thấp. Kết nối nghiên cứu định lượng và công nghệ.",
+    skills: ["Thiết kế hệ thống", "Tối ưu hiệu suất", "Kỹ thuật dữ liệu", "Hạ tầng giao dịch"]
   }
 ];
 
 export function QuantCareers() {
   return (
-    <Section title="Quant Career Paths" description="Explore the three main quantitative finance roles and what makes each unique">
+    <Section title="Lộ trình nghề nghiệp Quant" description="Khám phá ba vai trò chính trong tài chính định lượng và điều gì làm nên sự độc đáo của từng vai trò">
       <div className="grid gap-6 md:grid-cols-3">
         {careers.map((career, i) => {
           const Icon = career.icon;
@@ -44,7 +44,7 @@ export function QuantCareers() {
                 <CardContent className="space-y-4">
                   <p className="text-sm text-muted-foreground">{career.description}</p>
                   <div>
-                    <div className="text-sm font-medium mb-2">Key Skills:</div>
+                    <div className="text-sm font-medium mb-2">Kỹ năng chính:</div>
                     <ul className="text-xs text-muted-foreground space-y-1">
                       {career.skills.map(skill => (
                         <li key={skill}>• {skill}</li>

@@ -8,11 +8,11 @@ import { Menu, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
 const navLinks = [
-  { href: "#program", label: "Program" },
-  { href: "#careers", label: "Careers" },
-  { href: "#skills", label: "Skills" },
-  { href: "#interview", label: "Interview" },
-  { href: "#resources", label: "Resources" },
+  { href: "#program", label: "Chương trình" },
+  { href: "#careers", label: "Nghề nghiệp" },
+  { href: "#skills", label: "Kỹ năng" },
+  { href: "#interview", label: "Phỏng vấn" },
+  { href: "#resources", label: "Tài nguyên" },
 ];
 
 export function Header() {
@@ -50,7 +50,7 @@ export function Header() {
               element?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
-            Contact
+            Liên hệ
           </Button>
         </div>
 
@@ -86,7 +86,7 @@ export function Header() {
                     element?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
-                  Contact
+                  Liên hệ
                 </Button>
               </div>
             </SheetContent>

@@ -5,32 +5,32 @@ import { Button } from "@/components/ui/button";
 
 export function ProgramOverview() {
   return (
-    <Section title="QuantFident Mentorship Program" description="Think Smart. Be QuantFident">
+    <Section title="Chương trình Mentorship QuantFident" description="Tư duy thông minh. Trở thành QuantFident">
       <div className="grid gap-8 md:grid-cols-2">
         <FadeIn>
-          <h3 className="font-medium">Introduction</h3>
+          <h3 className="font-medium">Giới thiệu</h3>
           <p className="text-sm md:text-base text-muted-foreground mt-2">
-            Top tier quant roles - whether as a Quant Researcher, Trader, or Quant Developer - demand a rare combination of deep technical mastery, practical modeling experience, and interview ready confidence.
+            Các vị trí quant hàng đầu - dù là Quant Researcher, Trader, hay Quant Developer - đều đòi hỏi sự kết hợp hiếm có giữa chuyên môn kỹ thuật sâu, kinh nghiệm mô hình hóa thực tế và sự tự tin sẵn sàng phỏng vấn.
           </p>
           <p className="text-sm md:text-base text-muted-foreground mt-2">
-            Quant recruiting is not a contest of who is “good enough” - it is about being among the very best in both technical skills and presentation. Even the brightest candidates fail if they: make small mistakes under time pressure; lack a real, resume ready project; struggle to communicate their process clearly.
+            Tuyển dụng quant không phải cuộc thi về ai "đủ giỏi" - mà là về việc trở thành người xuất sắc nhất cả về kỹ năng kỹ thuật lẫn khả năng thuyết trình. Ngay cả những ứng viên thông minh nhất cũng thất bại nếu họ: mắc sai lầm nhỏ dưới áp lực thời gian; thiếu dự án thực tế sẵn sàng cho CV; gặp khó khăn trong việc truyền đạt quy trình của mình một cách rõ ràng.
           </p>
           <p className="text-sm md:text-base text-muted-foreground mt-2">
-            QuantFident was created to eliminate these gaps - giving you a structured pathway from core theory to real alpha research, backed by exclusive insights from current practicing quants.
+            QuantFident được tạo ra để loại bỏ những khoảng trống này - mang đến cho bạn lộ trình có cấu trúc từ lý thuyết cốt lõi đến nghiên cứu alpha thực tế, được hỗ trợ bởi những hiểu biết độc quyền từ các quant đang hoạt động hiện tại.
           </p>
         </FadeIn>
         <FadeIn delay={0.05}>
-          <h3 className="font-medium">Program Objectives</h3>
+          <h3 className="font-medium">Mục tiêu Chương trình</h3>
           <ul className="list-disc pl-6 text-sm md:text-base text-muted-foreground mt-2 space-y-2">
-            <li>Master the theory and problem types in A Practical Guide to Quantitative Finance Interviews (Ch2-7).</li>
-            <li>Build and backtest 2-3 alpha models on WorldQuant BRAIN.</li>
-            <li>Understand and apply evaluation metrics: returns, Sharpe, turnover, drawdown, correlation, robustness.</li>
-            <li>Present competitively with refined resume, documented projects, and interview confidence.</li>
-            <li>Gain awareness of competitions, challenges, and industry opportunities.</li>
+            <li>Thành thạo lý thuyết và các dạng bài trong A Practical Guide to Quantitative Finance Interviews (Ch2-7).</li>
+            <li>Xây dựng và kiểm tra lại 2-3 mô hình alpha trên WorldQuant BRAIN.</li>
+            <li>Hiểu và áp dụng các chỉ số đánh giá: lợi nhuận, Sharpe, turnover, drawdown, tương quan, độ bền vững.</li>
+            <li>Thể hiện cạnh tranh với CV được tinh chỉnh, dự án có tài liệu và sự tự tin phỏng vấn.</li>
+            <li>Nắm bắt các cuộc thi, thách thức và cơ hội trong ngành.</li>
           </ul>
-          <Button asChild className="mt-4">
-            <Link href="/program">Explore the full program</Link>
-          </Button>
+          <div className="mt-4">
+            <span className="text-sm text-muted-foreground">Khám phá chương trình đầy đủ bên dưới</span>
+          </div>
         </FadeIn>
       </div>
     </Section>
