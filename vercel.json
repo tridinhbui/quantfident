@@ -1,0 +1,6 @@
+{
+  "functions": {
+    "src/app/opengraph-image.tsx": { "runtime": "edge" }
+  }
+}
+
