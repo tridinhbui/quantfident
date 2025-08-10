@@ -3,30 +3,30 @@ import { FadeIn } from "@/components/anim/fade-in";
 
 const insights = [
   {
-    title: "Market Making & HFT",
-    description: "High-frequency trading firms like Citadel, Jump Trading, and Optiver focus on market microstructure, latency optimization, and statistical arbitrage.",
-    topics: ["Order book dynamics", "Latency arbitrage", "Market impact models", "Co-location strategies"]
+    title: "Tạo lập thị trường & HFT",
+    description: "Các công ty giao dịch tần số cao như Citadel, Jump Trading và Optiver tập trung vào vi cấu trúc thị trường, tối ưu hóa độ trễ và chênh lệch giá thống kê.",
+    topics: ["Động học sổ lệnh", "Chênh lệch độ trễ", "Mô hình tác động thị trường", "Chiến lược đồng vị trí"]
   },
   {
-    title: "Asset Management",
-    description: "Traditional asset managers like BlackRock, AQR, and Two Sigma use quantitative methods for portfolio construction and risk management.",
-    topics: ["Factor investing", "Risk parity", "Alternative data", "ESG integration"]
+    title: "Quản lý tài sản",
+    description: "Các nhà quản lý tài sản truyền thống như BlackRock, AQR và Two Sigma sử dụng phương pháp định lượng để xây dựng danh mục và quản lý rủi ro.",
+    topics: ["Đầu tư yếu tố", "Cân bằng rủi ro", "Dữ liệu thay thế", "Tích hợp ESG"]
   },
   {
-    title: "Hedge Funds",
-    description: "Quantitative hedge funds like Renaissance, DE Shaw, and Millennium employ sophisticated mathematical models for alpha generation.",
-    topics: ["Alpha research", "Multi-manager platforms", "Alternative datasets", "Machine learning applications"]
+    title: "Quỹ phòng hộ",
+    description: "Các quỹ phòng hộ định lượng như Renaissance, DE Shaw và Millennium sử dụng các mô hình toán học tinh vi để tạo alpha.",
+    topics: ["Nghiên cứu Alpha", "Nền tảng đa quản lý", "Bộ dữ liệu thay thế", "Ứng dụng học máy"]
   },
   {
-    title: "Investment Banks",
-    description: "Banks like Goldman Sachs, Morgan Stanley, and JP Morgan use quants for derivatives pricing, risk management, and electronic trading.",
-    topics: ["Derivatives pricing", "Credit risk models", "Regulatory capital", "Electronic market making"]
+    title: "Ngân hàng đầu tư",
+    description: "Các ngân hàng như Goldman Sachs, Morgan Stanley và JP Morgan sử dụng quant để định giá phái sinh, quản lý rủi ro và giao dịch điện tử.",
+    topics: ["Định giá phái sinh", "Mô hình rủi ro tín dụng", "Vốn quy định", "Tạo lập thị trường điện tử"]
   }
 ];
 
 export function IndustryInsights() {
   return (
-    <Section title="Industry Landscape" description="Understanding different sectors and their quantitative approaches">
+    <Section title="Bối cảnh ngành" description="Hiểu về các lĩnh vực khác nhau và cách tiếp cận định lượng của họ">
       <div className="grid gap-6 md:grid-cols-2">
         {insights.map((insight, i) => (
           <FadeIn key={insight.title} delay={i * 0.05}>
