@@ -1,7 +1,5 @@
 import { Section } from "./section";
 import { FadeIn } from "@/components/anim/fade-in";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 
 export function ProgramOverview() {
   return (
@@ -13,7 +11,7 @@ export function ProgramOverview() {
             Các vị trí quant hàng đầu - dù là Quant Researcher, Trader, hay Quant Developer - đều đòi hỏi sự kết hợp hiếm có giữa chuyên môn kỹ thuật sâu, kinh nghiệm mô hình hóa thực tế và sự tự tin sẵn sàng phỏng vấn.
           </p>
           <p className="text-base text-muted-foreground mt-4">
-            Tuyển dụng quant không phải cuộc thi về ai "đủ giỏi" - mà là về việc trở thành người xuất sắc nhất cả về kỹ năng kỹ thuật lẫn khả năng thuyết trình. Ngay cả những ứng viên thông minh nhất cũng thất bại nếu họ: mắc sai lầm nhỏ dưới áp lực thời gian; thiếu dự án thực tế sẵn sàng cho CV; gặp khó khăn trong việc truyền đạt quy trình của mình một cách rõ ràng.
+            Tuyển dụng quant không phải cuộc thi về ai &ldquo;đủ giỏi&rdquo; - mà là về việc trở thành người xuất sắc nhất cả về kỹ năng kỹ thuật lẫn khả năng thuyết trình. Ngay cả những ứng viên thông minh nhất cũng thất bại nếu họ: mắc sai lầm nhỏ dưới áp lực thời gian; thiếu dự án thực tế sẵn sàng cho CV; gặp khó khăn trong việc truyền đạt quy trình của mình một cách rõ ràng.
           </p>
           <p className="text-base text-muted-foreground mt-4">
             QuantFident được tạo ra để loại bỏ những khoảng trống này - mang đến cho bạn lộ trình có cấu trúc từ lý thuyết cốt lõi đến nghiên cứu alpha thực tế, được hỗ trợ bởi những hiểu biết độc quyền từ các quant đang hoạt động hiện tại.
