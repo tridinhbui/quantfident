@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Facebook, Github, Linkedin, Mail } from "lucide-react";
 
 export function Footer() {
   return (
@@ -22,6 +22,7 @@ export function Footer() {
           <Link href="mailto:hello@example.com" aria-label="Email"><Mail className="h-5 w-5" /></Link>
           <Link href="https://github.com" aria-label="GitHub"><Github className="h-5 w-5" /></Link>
           <Link href="https://www.linkedin.com" aria-label="LinkedIn"><Linkedin className="h-5 w-5" /></Link>
+          <Link href="https://www.facebook.com" aria-label="Facebook"><Facebook className="h-5 w-5" /></Link>
         </div>
       </div>
       <div className="text-xs text-center text-muted-foreground pb-8">© {new Date().getFullYear()} QuantFident</div>
