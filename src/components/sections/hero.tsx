@@ -1,6 +1,7 @@
 "use client";
 
 // Removed Link import for static site
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { FadeIn } from "@/components/anim/fade-in";
 import { ScaleIn } from "@/components/anim/scale-in";
@@ -59,10 +60,14 @@ export function Hero() {
           </FadeIn>
           <ScaleIn delay={0.2} className="hidden md:block">
             <div className="relative">
-              <div className="aspect-[4/3] rounded-3xl border bg-gradient-to-br from-primary/20 via-accent/10 to-secondary/20 backdrop-blur-sm shadow-2xl">
-                <div className="absolute inset-4 rounded-2xl bg-gradient-to-br from-background/40 to-background/20 backdrop-blur-sm border border-white/20" />
-                <div className="absolute top-8 left-8 w-16 h-16 rounded-full bg-primary/30 animate-pulse" />
-                <div className="absolute bottom-8 right-8 w-12 h-12 rounded-full bg-accent/40 animate-pulse delay-1000" />
+              <div className="aspect-[3/2] rounded-3xl border bg-gradient-to-br from-primary/20 via-accent/10 to-secondary/20 backdrop-blur-sm shadow-2xl overflow-hidden">
+                <Image
+                  src="/quantfident_logo.png"
+                  alt="QuantFident Logo"
+                  fill
+                  className="object-contain"
+                  priority
+                />
               </div>
               <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 blur-xl animate-pulse" />
             </div>
