@@ -5,8 +5,7 @@ import Image from "next/image";
 // Removed usePathname for static site
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
+import { Menu } from "lucide-react";
 
 const navLinks = [
   { href: "#program", label: "Chương trình" },
@@ -17,8 +16,6 @@ const navLinks = [
 ];
 
 export function Header() {
-  const { theme, setTheme } = useTheme();
-
   return (
     <header className="fixed top-0 inset-x-0 z-50 border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 shadow-lg">
       <div className="container mx-auto max-w-6xl px-4 h-18 flex items-center justify-between">
@@ -55,11 +52,8 @@ export function Header() {
             </a>
           ))}
         </nav>
-        <div className="hidden md:flex items-center gap-3">
-          <Button variant="ghost" size="icon" aria-label="Toggle theme" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-            {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-          </Button>
-          <Button 
+        <div className="hidden md:flex">
+          <Button
             onClick={() => {
               const element = document.querySelector('#contact');
               element?.scrollIntoView({ behavior: 'smooth' });
@@ -69,10 +63,7 @@ export function Header() {
           </Button>
         </div>
 
-        <div className="md:hidden flex items-center gap-2">
-          <Button variant="ghost" size="icon" aria-label="Toggle theme" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-            {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-          </Button>
+        <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon">
