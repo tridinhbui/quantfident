@@ -10,11 +10,11 @@ export function Footer() {
           <p className="text-sm text-muted-foreground mt-2">Think Smart. Be QuantFident</p>
         </div>
         <nav className="grid gap-2 text-sm">
-          <Link href="/program">Program</Link>
-          <Link href="/mentor">Mentor</Link>
-          <Link href="/tracks">Tracks</Link>
-          <Link href="/pricing">Pricing</Link>
-          <Link href="/apply">Apply</Link>
+          <a href="#program" className="hover:text-foreground/80 transition-colors">Chương trình</a>
+          <a href="#careers" className="hover:text-foreground/80 transition-colors">Nghề nghiệp</a>
+          <a href="#skills" className="hover:text-foreground/80 transition-colors">Kỹ năng</a>
+          <a href="#interview" className="hover:text-foreground/80 transition-colors">Phỏng vấn</a>
+          <a href="#contact" className="hover:text-foreground/80 transition-colors">Liên hệ</a>
           <Link href="/privacy">Privacy</Link>
           <Link href="/terms">Terms</Link>
         </nav>
