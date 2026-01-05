@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 // Removed usePathname for static site
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -21,8 +22,15 @@ export function Header() {
   return (
     <header className="fixed top-0 inset-x-0 z-50 border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 shadow-lg">
       <div className="container mx-auto max-w-6xl px-4 h-18 flex items-center justify-between">
-        <Link href="/" className="font-serif font-bold tracking-tight text-2xl bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
-          QuantFident
+        <Link href="/" className="font-serif font-bold tracking-tight text-2xl">
+          <Image
+            src="/quantfident_logo_transparent_cropped.png"
+            alt="QuantFident"
+            width={120}
+            height={40}
+            className="h-8 w-auto"
+            priority
+          />
         </Link>
         <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (

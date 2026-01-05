@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Facebook, Github, Linkedin, Mail } from "lucide-react";
 
 export function Footer() {
@@ -6,7 +7,15 @@ export function Footer() {
     <footer className="border-t mt-24">
       <div className="container mx-auto max-w-6xl px-4 py-10 grid gap-6 md:grid-cols-3">
         <div>
-          <div className="font-semibold tracking-tight">QuantFident</div>
+          <div className="font-semibold tracking-tight">
+            <Image
+              src="/quantfident_logo_transparent_cropped.png"
+              alt="QuantFident"
+              width={120}
+              height={40}
+              className="h-8 w-auto"
+            />
+          </div>
           <p className="text-sm text-muted-foreground mt-2">Think Smart. Be QuantFident</p>
         </div>
         <nav className="grid gap-2 text-sm">
