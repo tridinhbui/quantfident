@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { Chatbot } from "@/components/site/chatbot";
@@ -31,13 +30,11 @@ export default function RootLayout({
   return (
     <html lang="vi" suppressHydrationWarning>
       <body className={`${inter.variable} ${playfair.variable} antialiased min-h-screen bg-background text-foreground`}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
-          <Header />
-          <main className="pt-16">{children}</main>
-          <Footer />
-          <Chatbot />
-          <Toaster position="top-right" richColors />
-        </ThemeProvider>
+        <Header />
+        <main className="pt-16">{children}</main>
+        <Footer />
+        <Chatbot />
+        <Toaster position="top-right" richColors />
       </body>
     </html>
   );
