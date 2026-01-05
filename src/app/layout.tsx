@@ -33,7 +33,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${playfair.variable} antialiased min-h-screen bg-background text-foreground`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <Header />
-          <main className="pt-24">{children}</main>
+          <main className="pt-16">{children}</main>
           <Footer />
           <Chatbot />
           <Toaster position="top-right" richColors />

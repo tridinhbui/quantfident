@@ -15,7 +15,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.1),transparent_50%)] pointer-events-none" />
       
       <div className="container mx-auto max-w-6xl px-4 relative">
-        <div className="py-24 md:py-32 grid md:grid-cols-2 gap-12 items-center">
+        <div className="py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
           <FadeIn>
             <motion.div 
               className="inline-flex items-center rounded-full border px-4 py-2 text-sm text-muted-foreground mb-6 bg-background/80 backdrop-blur-sm shadow-lg"
