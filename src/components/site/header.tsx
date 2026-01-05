@@ -40,8 +40,15 @@ export function Header() {
               className="text-sm transition-colors hover:text-foreground/80 text-foreground/60 hover:text-foreground cursor-pointer"
               onClick={(e) => {
                 e.preventDefault();
-                const element = document.querySelector(link.href);
-                element?.scrollIntoView({ behavior: 'smooth' });
+                // Add small delay to ensure DOM is ready
+                setTimeout(() => {
+                  const element = document.querySelector(link.href);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    console.warn(`Element with id ${link.href} not found`);
+                  }
+                }, 100);
               }}
             >
               {link.label}
@@ -81,8 +88,15 @@ export function Header() {
                     className="text-sm cursor-pointer"
                     onClick={(e) => {
                       e.preventDefault();
-                      const element = document.querySelector(link.href);
-                      element?.scrollIntoView({ behavior: 'smooth' });
+                      // Add small delay to ensure DOM is ready
+                      setTimeout(() => {
+                        const element = document.querySelector(link.href);
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth' });
+                        } else {
+                          console.warn(`Element with id ${link.href} not found`);
+                        }
+                      }, 100);
                     }}
                   >
                     {link.label}
