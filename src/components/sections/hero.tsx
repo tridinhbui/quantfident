@@ -60,7 +60,7 @@ export function Hero() {
           </FadeIn>
           <ScaleIn delay={0.2} className="hidden md:block">
             <div className="relative">
-              <div className="aspect-[3/2] rounded-3xl border bg-gradient-to-br from-primary/20 via-accent/10 to-secondary/20 backdrop-blur-sm shadow-2xl overflow-hidden">
+              <div className="aspect-[3/2] rounded-3xl border bg-gradient-to-br from-primary/20 via-accent/10 to-secondary/20 backdrop-blur-sm shadow-2xl overflow-hidden quantfident-logo">
                 <Image
                   src="/quantfident_logo.png"
                   alt="QuantFident Logo"
