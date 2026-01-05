@@ -69,7 +69,7 @@ export function Hero() {
                   priority
                 />
               </div>
-              <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 blur-xl animate-pulse" />
+              <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 blur-xl animate-pulse"></div>
             </div>
           </ScaleIn>
         </div>
