@@ -1,6 +1,7 @@
 "use client";
 
 // Removed Link import for static site
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { FadeIn } from "@/components/anim/fade-in";
 import { ScaleIn } from "@/components/anim/scale-in";
@@ -14,7 +15,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.1),transparent_50%)] pointer-events-none" />
       
       <div className="container mx-auto max-w-6xl px-4 relative">
-        <div className="py-24 md:py-32 grid md:grid-cols-2 gap-12 items-center">
+        <div className="py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
           <FadeIn>
             <motion.div 
               className="inline-flex items-center rounded-full border px-4 py-2 text-sm text-muted-foreground mb-6 bg-background/80 backdrop-blur-sm shadow-lg"
@@ -59,12 +60,16 @@ export function Hero() {
           </FadeIn>
           <ScaleIn delay={0.2} className="hidden md:block">
             <div className="relative">
-              <div className="aspect-[4/3] rounded-3xl border bg-gradient-to-br from-primary/20 via-accent/10 to-secondary/20 backdrop-blur-sm shadow-2xl">
-                <div className="absolute inset-4 rounded-2xl bg-gradient-to-br from-background/40 to-background/20 backdrop-blur-sm border border-white/20" />
-                <div className="absolute top-8 left-8 w-16 h-16 rounded-full bg-primary/30 animate-pulse" />
-                <div className="absolute bottom-8 right-8 w-12 h-12 rounded-full bg-accent/40 animate-pulse delay-1000" />
+              <div className="aspect-[3/2] rounded-3xl border bg-gradient-to-br from-primary/20 via-accent/10 to-secondary/20 backdrop-blur-sm shadow-2xl overflow-hidden quantfident-logo">
+                <Image
+                  src="/quantfident_logo.png"
+                  alt="QuantFident Logo"
+                  fill
+                  className="object-contain"
+                  priority
+                />
               </div>
-              <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 blur-xl animate-pulse" />
+              <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 blur-xl animate-pulse"></div>
             </div>
           </ScaleIn>
         </div>
