@@ -190,7 +190,7 @@ export function AuthModal({ open, onOpenChange }: AuthModalProps) {
           </Button>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4" noValidate>
           {serverError && (
             <div className="p-3 text-sm text-red-600 bg-red-50 rounded-md">
               {serverError}
