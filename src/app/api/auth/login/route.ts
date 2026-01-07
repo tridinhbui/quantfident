@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
       { error: 'Thông tin đăng nhập không hợp lệ' },
       { status: 401 }
     );
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: 'Lỗi máy chủ nội bộ' },
       { status: 500 }

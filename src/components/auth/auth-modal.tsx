@@ -136,7 +136,7 @@ export function AuthModal({ open, onOpenChange }: AuthModalProps) {
           name: "",
         });
       }
-    } catch (error) {
+    } catch {
       setServerError("Không thể kết nối đến server. Vui lòng thử lại.");
     } finally {
       setIsLoading(false);
