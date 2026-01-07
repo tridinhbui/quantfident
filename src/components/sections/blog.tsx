@@ -66,7 +66,7 @@ export function Blog() {
   };
 
   return (
-    <Section title="Blog" description="Master the latest insights, tutorials, and experiences from the QuantFident community">
+    <Section title="Blog" description="Nắm vững những insights, tutorials, và kinh nghiệm mới nhất từ cộng đồng QuantFident">
       {/* Featured Posts */}
       {featuredPosts.length > 0 && (
         <div className="mb-12">
