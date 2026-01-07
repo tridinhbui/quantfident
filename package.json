@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "dev:check": "node -e \"if (!require('fs').existsSync('node_modules')) { console.log('Installing dependencies...'); require('child_process').execSync('npm install', { stdio: 'inherit' }); } else { console.log('Dependencies already installed ✓'); }\" && npm run dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
