@@ -1,9 +1,13 @@
+"use client";
+
+import { useState } from "react";
 import { Section } from "./section";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { FadeIn } from "@/components/anim/fade-in";
-import { Calendar, User, ArrowRight } from "lucide-react";
+import { Calendar, User, ArrowRight, X } from "lucide-react";
 
 const blogPosts = [
   {
@@ -49,11 +53,20 @@ const blogPosts = [
 ];
 
 export function Blog() {
+  const [selectedPost, setSelectedPost] = useState<typeof blogPosts[0] | null>(null);
   const featuredPosts = blogPosts.filter(post => post.featured);
   const regularPosts = blogPosts.filter(post => !post.featured);
 
+  const openPost = (post: typeof blogPosts[0]) => {
+    setSelectedPost(post);
+  };
+
+  const closePost = () => {
+    setSelectedPost(null);
+  };
+
   return (
-    <Section title="Blog" description="Insights, tutorials và kinh nghiệm từ cộng đồng QuantFident">
+    <Section title="Blog" description="Master the latest insights, tutorials, and experiences from the QuantFident community">
       {/* Featured Posts */}
       {featuredPosts.length > 0 && (
         <div className="mb-12">
@@ -71,7 +84,10 @@ export function Blog() {
                         ⭐ Featured
                       </Badge>
                     </div>
-                    <CardTitle className="text-lg leading-tight hover:text-primary transition-colors cursor-pointer">
+                    <CardTitle
+                      className="text-lg leading-tight hover:text-primary transition-colors cursor-pointer"
+                      onClick={() => openPost(post)}
+                    >
                       {post.title}
                     </CardTitle>
                   </CardHeader>
@@ -115,7 +131,10 @@ export function Blog() {
                   <Badge variant="secondary" className="text-xs w-fit mb-2">
                     {post.category}
                   </Badge>
-                  <CardTitle className="text-base leading-tight hover:text-primary transition-colors cursor-pointer">
+                  <CardTitle
+                    className="text-base leading-tight hover:text-primary transition-colors cursor-pointer"
+                    onClick={() => openPost(post)}
+                  >
                     {post.title}
                   </CardTitle>
                 </CardHeader>
@@ -155,6 +174,96 @@ export function Blog() {
           <ArrowRight className="w-4 h-4 ml-2" />
         </Button>
       </div>
+
+      {/* Post Detail Modal */}
+      <Dialog open={!!selectedPost} onOpenChange={() => closePost()}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold leading-tight">
+              {selectedPost?.title}
+            </DialogTitle>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="absolute right-4 top-4"
+              onClick={closePost}
+            >
+              <X className="h-4 w-4" />
+            </Button>
+          </DialogHeader>
+
+          {selectedPost && (
+            <div className="space-y-6">
+              {/* Post Meta */}
+              <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                <div className="flex items-center gap-1">
+                  <User className="w-4 h-4" />
+                  {selectedPost.author}
+                </div>
+                <div className="flex items-center gap-1">
+                  <Calendar className="w-4 h-4" />
+                  {new Date(selectedPost.date).toLocaleDateString('vi-VN')}
+                </div>
+                <Badge variant="secondary">{selectedPost.category}</Badge>
+                <span>{selectedPost.readTime}</span>
+              </div>
+
+              {/* Featured Badge */}
+              {selectedPost.featured && (
+                <Badge variant="outline" className="w-fit">
+                  ⭐ Bài viết nổi bật
+                </Badge>
+              )}
+
+              {/* Post Content - Mock content for demo */}
+              <div className="prose prose-slate max-w-none">
+                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                  {selectedPost.excerpt}
+                </p>
+
+                <h3 className="text-xl font-semibold mb-4">Giới thiệu</h3>
+                <p className="mb-4">
+                  Bài viết này sẽ đi sâu vào các khía cạnh quan trọng của chủ đề, cung cấp cái nhìn toàn diện
+                  và thực tế từ cộng đồng QuantFident. Chúng tôi tin rằng kiến thức nên được chia sẻ và
+                  phát triển cùng nhau.
+                </p>
+
+                <h3 className="text-xl font-semibold mb-4">Nội dung chính</h3>
+                <ul className="list-disc pl-6 mb-4 space-y-2">
+                  <li>Các khái niệm cơ bản và nền tảng</li>
+                  <li>Công cụ và kỹ thuật thực tế</li>
+                  <li>Các case study từ thực tế</li>
+                  <li>Best practices và lessons learned</li>
+                </ul>
+
+                <h3 className="text-xl font-semibold mb-4">Kết luận</h3>
+                <p className="mb-4">
+                  Tóm lại, việc nắm vững các kỹ năng và kiến thức trong lĩnh vực này là yếu tố then chốt
+                  cho sự thành công. Cộng đồng QuantFident luôn sẵn sàng hỗ trợ và chia sẻ kinh nghiệm
+                  để cùng nhau phát triển.
+                </p>
+
+                <div className="bg-muted p-4 rounded-lg">
+                  <p className="text-sm italic">
+                    Bài viết này là nội dung mẫu. Trong phiên bản hoàn chỉnh, đây sẽ là nội dung đầy đủ
+                    từ các tác giả trong cộng đồng QuantFident.
+                  </p>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex gap-3 pt-4 border-t">
+                <Button onClick={closePost} className="flex-1">
+                  Đóng
+                </Button>
+                <Button variant="outline" className="flex-1">
+                  Chia sẻ bài viết
+                </Button>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </Section>
   );
 }
