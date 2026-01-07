@@ -15,6 +15,7 @@ const navLinks = [
   { href: "#skills", label: "Kỹ năng" },
   { href: "#interview", label: "Phỏng vấn" },
   { href: "#resources", label: "Tài nguyên" },
+  { href: "#blog", label: "Blog" },
 ];
 
 export function Header() {
