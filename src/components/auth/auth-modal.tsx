@@ -42,8 +42,8 @@ export function AuthModal({ open, onOpenChange }: AuthModalProps) {
       newErrors.password = "Mật khẩu là bắt buộc";
     } else if (formData.password.length < 8) {
       newErrors.password = "Mật khẩu phải có ít nhất 8 ký tự";
-    } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(formData.password)) {
-      newErrors.password = "Mật khẩu phải chứa chữ hoa, chữ thường và số";
+    } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])/.test(formData.password)) {
+      newErrors.password = "Mật khẩu phải chứa chữ hoa, chữ thường, số và ký tự đặc biệt";
     }
 
     // Name validation for register
@@ -173,6 +173,7 @@ export function AuthModal({ open, onOpenChange }: AuthModalProps) {
     <Dialog open={open} onOpenChange={() => {}}>
       <DialogContent
         className="sm:max-w-md"
+        showCloseButton={false}
         onEscapeKeyDown={(e) => e.preventDefault()}
         onPointerDownOutside={(e) => e.preventDefault()}
       >
@@ -183,10 +184,11 @@ export function AuthModal({ open, onOpenChange }: AuthModalProps) {
           <Button
             variant="ghost"
             size="icon"
-            className="absolute right-4 top-4"
+            className="absolute right-4 top-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 hover:bg-accent hover:text-accent-foreground"
             onClick={handleClose}
           >
             <X className="h-4 w-4" />
+            <span className="sr-only">Đóng</span>
           </Button>
         </DialogHeader>
 
