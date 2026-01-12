@@ -102,11 +102,12 @@ export function Header() {
                 <Button
                   variant="outline"
                   onClick={() => setAuthModalOpen(true)}
+                  className="w-full"
                 >
                   Đăng nhập
                 </Button>
-                <Link href="https://www.facebook.com/nguyen.banhs" target="_blank" rel="noopener noreferrer">
-                  <Button>Liên hệ</Button>
+                <Link href="https://www.facebook.com/nguyen.banhs" target="_blank" rel="noopener noreferrer" className="w-full">
+                  <Button className="w-full">Liên hệ</Button>
                 </Link>
               </div>
             </SheetContent>
