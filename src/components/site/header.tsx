@@ -64,14 +64,9 @@ export function Header() {
           >
             Đăng nhập
           </Button>
-          <Button
-            onClick={() => {
-              const element = document.querySelector('#contact');
-              element?.scrollIntoView({ behavior: 'smooth' });
-            }}
-          >
-            Liên hệ
-          </Button>
+          <Link href="https://contact.quantfident.com" target="_blank" rel="noopener noreferrer">
+            <Button>Liên hệ</Button>
+          </Link>
         </div>
 
         <div className="md:hidden">
@@ -110,14 +105,9 @@ export function Header() {
                 >
                   Đăng nhập
                 </Button>
-                <Button
-                  onClick={() => {
-                    const element = document.querySelector('#contact');
-                    element?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                >
-                  Liên hệ
-                </Button>
+                <Link href="https://www.facebook.com/nguyen.banhs" target="_blank" rel="noopener noreferrer">
+                  <Button>Liên hệ</Button>
+                </Link>
               </div>
             </SheetContent>
           </Sheet>
