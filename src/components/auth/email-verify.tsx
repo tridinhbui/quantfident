@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { signInWithEmailLink } from '@/lib/firebase/auth';
+// Using simple div instead of Alert component
+import { completeSignInWithEmailLink } from '@/lib/firebase/auth';
 import { CheckCircle, XCircle, Loader2 } from 'lucide-react';
 
 export function EmailVerify() {
@@ -27,7 +27,7 @@ export function EmailVerify() {
         const emailLink = window.location.href;
 
         // Complete sign-in
-        const result = await signInWithEmailLink(email, emailLink);
+        const result = await completeSignInWithEmailLink(email, emailLink);
 
         if (result.success) {
           setStatus('success');
@@ -70,9 +70,9 @@ export function EmailVerify() {
             <>
               <CheckCircle className="mx-auto h-12 w-12 text-green-500" />
               <h2 className="mt-6 text-2xl font-bold text-green-600">Thành công!</h2>
-              <Alert className="mt-4 border-green-200 bg-green-50">
-                <AlertDescription>{message}</AlertDescription>
-              </Alert>
+              <div className="mt-4 p-4 rounded-md border border-green-200 bg-green-50 text-green-800">
+                <p className="text-sm">{message}</p>
+              </div>
             </>
           )}
 
@@ -80,9 +80,9 @@ export function EmailVerify() {
             <>
               <XCircle className="mx-auto h-12 w-12 text-red-500" />
               <h2 className="mt-6 text-2xl font-bold text-red-600">Xác thực thất bại</h2>
-              <Alert className="mt-4">
-                <AlertDescription>{message}</AlertDescription>
-              </Alert>
+              <div className="mt-4 p-4 rounded-md border border-red-200 bg-red-50 text-red-800">
+                <p className="text-sm">{message}</p>
+              </div>
               <Button onClick={handleRetry} className="w-full mt-4">
                 Thử lại
               </Button>

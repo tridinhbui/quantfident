@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Alert, AlertDescription } from "@/components/ui/alert";
+// Using simple div instead of Alert component
 import { sendSignInLink } from "@/lib/firebase/auth";
 import { Mail, Loader2 } from "lucide-react";
 
@@ -53,10 +53,16 @@ export function EmailSignIn() {
       </div>
 
       {message && (
-        <Alert className={isSuccess ? 'border-green-200 bg-green-50' : ''}>
-          <Mail className="h-4 w-4" />
-          <AlertDescription>{message}</AlertDescription>
-        </Alert>
+        <div className={`p-4 rounded-md border ${
+          isSuccess
+            ? 'border-green-200 bg-green-50 text-green-800'
+            : 'border-red-200 bg-red-50 text-red-800'
+        }`}>
+          <div className="flex items-center gap-2">
+            <Mail className="h-4 w-4" />
+            <p className="text-sm">{message}</p>
+          </div>
+        </div>
       )}
 
       <form onSubmit={handleSubmit} className="space-y-4">

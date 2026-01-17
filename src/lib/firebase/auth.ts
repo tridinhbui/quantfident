@@ -120,7 +120,7 @@ export async function sendSignInLink(email: string): Promise<AuthResult> {
 }
 
 // Complete sign-in with email link
-export async function signInWithEmailLink(email: string, emailLink: string): Promise<AuthResult> {
+export async function completeSignInWithEmailLink(email: string, emailLink: string): Promise<AuthResult> {
   if (!isFirebaseConfigured || !auth) {
     return {
       success: false,
