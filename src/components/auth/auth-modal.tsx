@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { X, Loader2 } from "lucide-react";
+import { EmailSignIn } from "./email-signin";
 
 interface AuthModalProps {
   open: boolean;
@@ -136,7 +137,7 @@ export function AuthModal({ open, onOpenChange }: AuthModalProps) {
           name: "",
         });
       }
-    } catch {
+    } catch (error) {
       setServerError("Không thể kết nối đến server. Vui lòng thử lại.");
     } finally {
       setIsLoading(false);
@@ -173,7 +174,6 @@ export function AuthModal({ open, onOpenChange }: AuthModalProps) {
     <Dialog open={open} onOpenChange={() => {}}>
       <DialogContent
         className="sm:max-w-md"
-        showCloseButton={false}
         onEscapeKeyDown={(e) => e.preventDefault()}
         onPointerDownOutside={(e) => e.preventDefault()}
       >
@@ -184,104 +184,14 @@ export function AuthModal({ open, onOpenChange }: AuthModalProps) {
           <Button
             variant="ghost"
             size="icon"
-            className="absolute right-4 top-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 hover:bg-accent hover:text-accent-foreground"
+            className="absolute right-4 top-4"
             onClick={handleClose}
           >
             <X className="h-4 w-4" />
-            <span className="sr-only">Đóng</span>
           </Button>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="space-y-4" noValidate>
-          {serverError && (
-            <div className="p-3 text-sm text-red-600 bg-red-50 rounded-md">
-              {serverError}
-            </div>
-          )}
-
-          {mode === "register" && (
-            <div className="space-y-2">
-              <Label htmlFor="name">Tên</Label>
-              <Input
-                id="name"
-                type="text"
-                value={formData.name}
-                onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                className={errors.name ? "border-red-500" : ""}
-              />
-              {errors.name && (
-                <p className="text-sm text-red-600">{errors.name}</p>
-              )}
-            </div>
-          )}
-
-          <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              type="email"
-              value={formData.email}
-              onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-              className={errors.email ? "border-red-500" : ""}
-            />
-            {errors.email && (
-              <p className="text-sm text-red-600">{errors.email}</p>
-            )}
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="password">Mật khẩu</Label>
-            <Input
-              id="password"
-              type="password"
-              value={formData.password}
-              onChange={(e) => setFormData(prev => ({ ...prev, password: e.target.value }))}
-              className={errors.password ? "border-red-500" : ""}
-            />
-            {errors.password && (
-              <p className="text-sm text-red-600">{errors.password}</p>
-            )}
-          </div>
-
-          {mode === "register" && (
-            <div className="space-y-2">
-              <Label htmlFor="confirmPassword">Xác nhận mật khẩu</Label>
-              <Input
-                id="confirmPassword"
-                type="password"
-                value={formData.confirmPassword}
-                onChange={(e) => setFormData(prev => ({ ...prev, confirmPassword: e.target.value }))}
-                className={errors.confirmPassword ? "border-red-500" : ""}
-              />
-              {errors.confirmPassword && (
-                <p className="text-sm text-red-600">{errors.confirmPassword}</p>
-              )}
-            </div>
-          )}
-
-          <Button
-            type="submit"
-            className="w-full"
-            disabled={isLoading || !formData.email || !formData.password ||
-                     (mode === "register" && (!formData.name || !formData.confirmPassword))}
-          >
-            {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-            {mode === "login" ? "Đăng nhập" : "Đăng ký"}
-          </Button>
-
-          {mode === "login" && (
-            <p className="text-center text-sm text-muted-foreground">
-              Đây là lần đầu tiên bạn vào page?{" "}
-              <button
-                type="button"
-                onClick={switchToRegister}
-                className="text-primary hover:underline font-medium"
-              >
-                Đăng ký
-              </button>
-            </p>
-          )}
-        </form>
+        <EmailSignIn />
       </DialogContent>
     </Dialog>
   );
