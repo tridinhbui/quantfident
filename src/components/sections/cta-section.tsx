@@ -15,8 +15,8 @@ export function CTASection() {
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <div className="text-center">
               <p className="text-sm text-muted-foreground mb-2">Email us at:</p>
-              <a href="mailto:hello@quantfident.com" className="text-lg font-medium text-primary hover:underline">
-                hello@quantfident.com
+              <a href="mailto:tribd.tec@gmail.com" className="text-lg font-medium text-primary hover:underline">
+                  tribd.tec@gmail.com
               </a>
             </div>
             <div className="hidden sm:block w-px bg-border mx-4"></div>

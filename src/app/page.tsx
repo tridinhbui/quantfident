@@ -4,6 +4,7 @@ import { Timeline } from "@/components/sections/timeline";
 import { MetricTiles } from "@/components/sections/metric-tiles";
 import { Testimonial } from "@/components/sections/testimonial";
 import { FAQAccordion } from "@/components/sections/faq-accordion";
+import { Blog } from "@/components/sections/blog";
 import { CTASection } from "@/components/sections/cta-section";
 import { ProgramOverview } from "@/components/sections/program-overview";
 import { QuantCareers } from "@/components/sections/quant-careers";
@@ -35,6 +36,9 @@ export default function Home() {
       </div>
       <Testimonial />
       <FAQAccordion />
+      <div id="blog">
+        <Blog />
+      </div>
       <div id="contact">
         <CTASection />
       </div>

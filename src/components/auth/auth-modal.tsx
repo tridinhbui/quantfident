@@ -1,0 +1,198 @@
+"use client";
+
+import { useState } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { X, Loader2 } from "lucide-react";
+import { EmailSignIn } from "./email-signin";
+
+interface AuthModalProps {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}
+
+type AuthMode = "login" | "register";
+
+export function AuthModal({ open, onOpenChange }: AuthModalProps) {
+  const [mode, setMode] = useState<AuthMode>("login");
+  const [isLoading, setIsLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+    name: "",
+  });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [serverError, setServerError] = useState("");
+
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email) {
+      newErrors.email = "Email là bắt buộc";
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = "Email không hợp lệ";
+    }
+
+    // Password validation
+    if (!formData.password) {
+      newErrors.password = "Mật khẩu là bắt buộc";
+    } else if (formData.password.length < 8) {
+      newErrors.password = "Mật khẩu phải có ít nhất 8 ký tự";
+    } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])/.test(formData.password)) {
+      newErrors.password = "Mật khẩu phải chứa chữ hoa, chữ thường, số và ký tự đặc biệt";
+    }
+
+    // Name validation for register
+    if (mode === "register") {
+      if (!formData.name.trim()) {
+        newErrors.name = "Tên là bắt buộc";
+      } else if (formData.name.trim().length < 2) {
+        newErrors.name = "Tên phải có ít nhất 2 ký tự";
+      }
+
+      // Confirm password validation
+      if (!formData.confirmPassword) {
+        newErrors.confirmPassword = "Xác nhận mật khẩu là bắt buộc";
+      } else if (formData.password !== formData.confirmPassword) {
+        newErrors.confirmPassword = "Mật khẩu xác nhận không khớp";
+      }
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsLoading(true);
+    setServerError("");
+
+    try {
+      if (mode === "register") {
+        const response = await fetch('/api/auth/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: formData.email,
+            password: formData.password,
+            name: formData.name,
+          }),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          setServerError(data.error || 'Đăng ký thất bại');
+          return;
+        }
+
+        // Registration successful
+        setMode("login");
+        setFormData(prev => ({
+          ...prev,
+          password: "",
+          confirmPassword: "",
+          name: "",
+        }));
+        setServerError("");
+        alert("Đăng ký thành công! Đóng (✕) và đăng nhập.");
+      } else {
+        const response = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: formData.email,
+            password: formData.password,
+          }),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          setServerError(data.error || 'Đăng nhập thất bại');
+          return;
+        }
+
+        // Login successful - in real app, save token to localStorage/cookies
+        alert("Đăng nhập thành công!");
+        onOpenChange(false);
+        setFormData({
+          email: "",
+          password: "",
+          confirmPassword: "",
+          name: "",
+        });
+      }
+    } catch (error) {
+      setServerError("Không thể kết nối đến server. Vui lòng thử lại.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const switchToRegister = () => {
+    setMode("register");
+    setErrors({});
+    setServerError("");
+    // Keep only email when switching
+    setFormData(prev => ({
+      email: prev.email,
+      password: "",
+      confirmPassword: "",
+      name: "",
+    }));
+  };
+
+  const handleClose = () => {
+    onOpenChange(false);
+    setMode("login");
+    setErrors({});
+    setServerError("");
+    setFormData({
+      email: "",
+      password: "",
+      confirmPassword: "",
+      name: "",
+    });
+  };
+
+  return (
+    <Dialog open={open} onOpenChange={() => {}}>
+      <DialogContent
+        className="sm:max-w-md"
+        onEscapeKeyDown={(e) => e.preventDefault()}
+        onPointerDownOutside={(e) => e.preventDefault()}
+      >
+        <DialogHeader>
+          <DialogTitle className="text-center">
+            {mode === "login" ? "Đăng nhập" : "Đăng ký"}
+          </DialogTitle>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="absolute right-4 top-4"
+            onClick={handleClose}
+          >
+            <X className="h-4 w-4" />
+          </Button>
+        </DialogHeader>
+
+        <EmailSignIn />
+      </DialogContent>
+    </Dialog>
+  );
+}

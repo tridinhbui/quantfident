@@ -6,6 +6,8 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import { useState } from "react";
+import { AuthModal } from "@/components/auth/auth-modal";
 
 const navLinks = [
   { href: "#program", label: "Chương trình" },
@@ -13,9 +15,12 @@ const navLinks = [
   { href: "#skills", label: "Kỹ năng" },
   { href: "#interview", label: "Phỏng vấn" },
   { href: "#resources", label: "Tài nguyên" },
+  { href: "#blog", label: "Blog" },
 ];
 
 export function Header() {
+  const [authModalOpen, setAuthModalOpen] = useState(false);
+
   return (
     <header className="fixed top-0 inset-x-0 z-50 border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 shadow-lg">
       <div className="container mx-auto max-w-6xl px-4 h-18 flex items-center justify-between">
@@ -52,15 +57,16 @@ export function Header() {
             </a>
           ))}
         </nav>
-        <div className="hidden md:flex">
+        <div className="hidden md:flex items-center gap-3">
           <Button
-            onClick={() => {
-              const element = document.querySelector('#contact');
-              element?.scrollIntoView({ behavior: 'smooth' });
-            }}
+            variant="outline"
+            onClick={() => setAuthModalOpen(true)}
           >
-            Liên hệ
+            Đăng nhập
           </Button>
+          <Link href="https://www.facebook.com/nguyen.banhs" target="_blank" rel="noopener noreferrer">
+            <Button>Liên hệ</Button>
+          </Link>
         </div>
 
         <div className="md:hidden">
@@ -93,19 +99,26 @@ export function Header() {
                     {link.label}
                   </a>
                 ))}
-                <Button 
-                  onClick={() => {
-                    const element = document.querySelector('#contact');
-                    element?.scrollIntoView({ behavior: 'smooth' });
-                  }}
+                <Button
+                  variant="outline"
+                  onClick={() => setAuthModalOpen(true)}
+                  className="w-full"
                 >
-                  Liên hệ
+                  Đăng nhập
                 </Button>
+                <Link href="https://www.facebook.com/nguyen.banhs" target="_blank" rel="noopener noreferrer" className="w-full">
+                  <Button className="w-full">Liên hệ</Button>
+                </Link>
               </div>
             </SheetContent>
           </Sheet>
         </div>
       </div>
+
+      <AuthModal
+        open={authModalOpen}
+        onOpenChange={setAuthModalOpen}
+      />
     </header>
   );
 }
