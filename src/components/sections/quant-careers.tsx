@@ -7,46 +7,73 @@ const careers = [
   {
     icon: TrendingUp,
     title: "Nhà nghiên cứu Quant",
-    description: "Thiết kế tín hiệu alpha, kiểm tra lại chiến lược, phân tích bất thường thị trường. Tập trung vào mô hình thống kê, nghiên cứu yếu tố và phân tích dự đoán.",
-    skills: ["Thống kê & Xác suất", "Xử lý tín hiệu", "Mô hình yếu tố", "Phương pháp nghiên cứu"]
+    description:
+      "Thiết kế tín hiệu alpha, kiểm tra lại chiến lược, phân tích bất thường thị trường. Tập trung vào mô hình thống kê, nghiên cứu yếu tố và phân tích dự đoán.",
+    skills: [
+      "Thống kê & Xác suất",
+      "Xử lý tín hiệu",
+      "Mô hình yếu tố",
+      "Phương pháp nghiên cứu",
+    ],
   },
   {
     icon: Brain,
     title: "Trader Quant",
-    description: "Thực hiện chiến lược thuật toán, quản lý rủi ro thời gian thực, tối ưu hóa phân bổ danh mục. Kết hợp phân tích định lượng với trực giác thị trường.",
-    skills: ["Vi cấu trúc thị trường", "Quản lý rủi ro", "Tối ưu danh mục", "Thuật toán thực thi"]
+    description:
+      "Thực hiện chiến lược thuật toán, quản lý rủi ro thời gian thực, tối ưu hóa phân bổ danh mục. Kết hợp phân tích định lượng với trực giác thị trường.",
+    skills: [
+      "Vi cấu trúc thị trường",
+      "Quản lý rủi ro",
+      "Tối ưu danh mục",
+      "Thuật toán thực thi",
+    ],
   },
   {
     icon: Code,
     title: "Lập trình viên Quant",
-    description: "Xây dựng hệ thống giao dịch, triển khai khung kiểm tra lại, tối ưu hóa hạ tầng độ trễ thấp. Kết nối nghiên cứu định lượng và công nghệ.",
-    skills: ["Thiết kế hệ thống", "Tối ưu hiệu suất", "Kỹ thuật dữ liệu", "Hạ tầng giao dịch"]
-  }
+    description:
+      "Xây dựng hệ thống giao dịch, triển khai khung kiểm tra lại, tối ưu hóa hạ tầng độ trễ thấp. Kết nối nghiên cứu định lượng và công nghệ.",
+    skills: [
+      "Thiết kế hệ thống",
+      "Tối ưu hiệu suất",
+      "Kỹ thuật dữ liệu",
+      "Hạ tầng giao dịch",
+    ],
+  },
 ];
 
 export function QuantCareers() {
   return (
-    <Section title="Lộ trình nghề nghiệp Quant" description="Khám phá ba vai trò chính trong tài chính định lượng và điều gì làm nên sự độc đáo của từng vai trò">
+    <Section
+      title="Lộ trình nghề nghiệp Quant"
+      description="Khám phá ba vai trò chính trong tài chính định lượng và điều gì làm nên sự độc đáo của từng vai trò"
+    >
       <div className="grid gap-6 md:grid-cols-3">
         {careers.map((career, i) => {
           const Icon = career.icon;
           return (
             <FadeIn key={career.title} delay={i * 0.1}>
-              <Card className="rounded-3xl shadow-xl h-full border-0 bg-gradient-to-br from-background via-background to-primary/5 backdrop-blur-sm hover:shadow-2xl transition-all duration-300">
-                <CardHeader>
-                  <div className="flex items-center gap-3">
-                    <div className="p-3 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 shadow-lg">
-                      <Icon className="h-6 w-6 text-primary" />
+              <Card className="rounded-2xl shadow-md h-full bg-primary text-primary-foreground">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="p-1.5 rounded-lg bg-primary-foreground/10">
+                      <Icon className="h-4 w-4 text-primary-foreground" />
                     </div>
-                    <CardTitle className="text-xl font-serif">{career.title}</CardTitle>
                   </div>
+                  <CardTitle className="text-sm leading-tight text-primary-foreground">
+                    {career.title}
+                  </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-sm text-muted-foreground">{career.description}</p>
+                <CardContent className="space-y-3 pt-0">
+                  <p className="text-xs text-primary-foreground/80 leading-relaxed">
+                    {career.description}
+                  </p>
                   <div>
-                    <div className="text-sm font-medium mb-2">Kỹ năng chính:</div>
-                    <ul className="text-xs text-muted-foreground space-y-1">
-                      {career.skills.map(skill => (
+                    <div className="text-xs font-medium mb-1 text-primary-foreground">
+                      Kỹ năng chính:
+                    </div>
+                    <ul className="text-xs text-primary-foreground/80 space-y-0.5">
+                      {career.skills.slice(0, 3).map((skill) => (
                         <li key={skill}>• {skill}</li>
                       ))}
                     </ul>

@@ -20,6 +20,11 @@ Dev server: `http://localhost:3000`
 
 ### Environment
 - `NEXT_PUBLIC_SITE_URL` (optional): canonical URL, used in metadata/sitemap/robots
+- `ADMIN_EMAIL` (server-only): the *only* account that can be promoted to admin role.
+- `NEXT_PUBLIC_CONTACT_EMAIL` (client-visible): public contact mailbox shown in CTA. This is intentionally separate from `ADMIN_EMAIL`.
+- `NEXT_PUBLIC_SUPABASE_URL` (client/server): Supabase project URL.
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY` (client): public anonymous key for read/write.
+- `SUPABASE_SERVICE_ROLE_KEY` (server-only): privileged key for server-side operations.
 
 ### Deploy (Vercel)
 1. Push to GitHub
@@ -38,6 +43,8 @@ Dev server: `http://localhost:3000`
 ### API
 - `POST /api/apply` accepts JSON body with fields: name, email, contact, school, cv, github, goal, experience, availability, question
 - Validates via zod; appends to `/tmp/applications.json`; logs to server console
+
+<!-- redeploy: trigger build -->
 
 ### Notes
 - Images use `next/image` when added

@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local database schema file
+database-schema.sql
+
+# Private implementation notes
+private-notes.md
+.env*.local

@@ -1,5 +1,7 @@
 import { Section } from "./section";
 
+const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || "contact@quantfident.com";
+
 export function CTASection() {
   return (
     <Section>
@@ -15,8 +17,8 @@ export function CTASection() {
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <div className="text-center">
               <p className="text-sm text-muted-foreground mb-2">Email us at:</p>
-              <a href="mailto:hello@quantfident.com" className="text-lg font-medium text-primary hover:underline">
-                hello@quantfident.com
+              <a href={`mailto:${contactEmail}`} className="text-lg font-medium text-primary hover:underline">
+                {contactEmail}
               </a>
             </div>
             <div className="hidden sm:block w-px bg-border mx-4"></div>
@@ -33,4 +35,3 @@ export function CTASection() {
     </Section>
   );
 }
-

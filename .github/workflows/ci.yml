@@ -27,9 +27,12 @@ jobs:
         run: npm run lint
 
       - name: Build project
-        run: npm run build
-        env:
-          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL || 'https://quantfident.vercel.app' }}
+        run: |
+          export NEXT_PUBLIC_SITE_URL=${{ secrets.NEXT_PUBLIC_SITE_URL }}
+          if [ -z "$NEXT_PUBLIC_SITE_URL" ]; then
+            export NEXT_PUBLIC_SITE_URL="https://quantfident.vercel.app"
+          fi
+          npm run build
 
       - name: Check build output
         run: |

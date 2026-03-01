@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://quantfident.vercel.app";
+const baseUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://quantfident.vercel.app";
 
 export const siteMetadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -39,15 +40,9 @@ export const siteMetadata: Metadata = {
     locale: "vi_VN",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "QuantFident Mentorship",
-    description:
-      "Break into Quant với lộ trình theory-to-alpha và unlimited mock interviews.",
-    images: ["/opengraph-image"],
-  },
   icons: {
-    icon: "/favicon.ico",
+    icon: [{ url: "/official_transparent_icon.png", type: "image/png" }],
+    apple: "/official_transparent_icon.png",
   },
   robots: {
     index: true,
@@ -57,4 +52,3 @@ export const siteMetadata: Metadata = {
     canonical: baseUrl,
   },
 };
-
